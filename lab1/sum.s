@@ -9,8 +9,10 @@ _start: 					# == INITIALIZATION
 LOOP: 						# == LOOP BODY START ==
 		ldw r5, 0(r3) 		# get next element from list
 		add r4, r4, r5 		# add element to accumulating sum in r4
-		stw r0, 0(r3)		# sets list element to 0
-		addi r3, r3, 4 		# advance to the list pointer
+
+		stw r0, 0(r3)		# sets list element to 0 NEW
+		addi r3, r3, 4 		# advance to the list pointer NEW
+
 		subi r2, r2, 1 		# (start of branching) decrement counter
 		bgt r2, r0, LOOP 	# has count reached zero?
 							# == LOOP BODY END ==
