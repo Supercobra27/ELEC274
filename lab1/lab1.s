@@ -3,7 +3,7 @@
 .org 0x0000
 
 _start:
-	#load in constants
+	# load in constants
 	ldw r2, F(r0)
 	ldw r3, S(r0)
 	ldw r4, K(r0)
@@ -23,9 +23,9 @@ _end:
 	br _end
 
 	.org 0x1000
-W:	.skip 4 #7
-X:	.skip 4 #8
-A:	.skip 4 #10
+W:	.skip 4 # 7
+X:	.skip 4 # 8
+A:	.skip 4 # 10
 F:	.word 4
 S:	.word 6
 K:	.word 5
