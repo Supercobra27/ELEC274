@@ -53,6 +53,8 @@ end_if:
         addi sp, sp, 24         # Reallocate Stack Memory
         ret
 
+.org 0x1000
+
 _start:
 
         movia sp, 0x7FFFFC      # Initialize Stack Pointer
@@ -60,8 +62,9 @@ _start:
         movia r3, Y_LIST        # Initialize Y_LIST
         movia r4, SLOPE         # Initialize SLOPE
         movia r5, INTERCEPT     # Initialize INTERCEPT
-        movia r6, COUNT         # Intialize COUNT
         movia r7, SIZE          # Initialize SIZE
+        movia r6, COUNT         # Initialize COUNT
+        mov r6, r0              # Initialize COUNT Register to 0
         mov r16, r0             # Initialize Unused Register to 0
         mov r17, r0             # Initialize Unused Register to 0
         mov r18, r0             # Initialize Unused Register to 0
@@ -77,14 +80,14 @@ _start:
 _end:
         break
 
-.org 0x1000
+.org 0x2000
 
-X_LIST: .word 1,2,3             # X-Coord List
-Y_LIST: .word 7,-1,9            # Y-Coord List
-SLOPE:      .word 2             # Slope
-INTERCEPT:  .word 4             # Intercept
-SIZE: .word 3                   # Size of list(s)
-COUNT:  .skip 4                 # Store points above here
+X_LIST:      .word 1,2,3        # X-Coord List
+Y_LIST:      .word 7,-1,9       # Y-Coord List
+SLOPE:       .word 2            # Slope
+INTERCEPT:   .word 4            # Intercept
+SIZE:        .word 3            # Size of list(s)
+COUNT:       .skip 4            # Store points above here
 
 
 .end
