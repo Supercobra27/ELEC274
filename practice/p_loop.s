@@ -2,10 +2,6 @@
 .global _start
 .org 0x0000
 
-# need to fix
-
-# practice loop
-
 _start:
     ldw r5, numItems(r0)    # load numItems from memory into register 1
     movi r2, list           # gets the first pointer to the list
@@ -14,8 +10,8 @@ LOOP:
     ldw r4, 0(r2)           # gets the next item from the list
     add r3,r3,r4            # adds to the sum
     subi r5, r5, 1          # subtract the counter
-    addi r2, r2, 4
-    bgt r5, r0, LOOP        # checks condition, if r5 != 0, branch to LOOP
+    addi r2, r2, 4          # increments the list
+    bgt r5, r0, LOOP        # checks condition, if r5 > 0, branch to LOOP
 
     stw r3, sum(r0)         # store the final sum
 _end: 
