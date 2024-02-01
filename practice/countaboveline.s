@@ -20,7 +20,7 @@ check_loop:
         ldw r17, 0(r3)          # Get Y_LIST[i]
 
         ldw r18, 0(r4)          # Get SLOPE
-        ldw r19, 0(r5)          # Get INTERCEPT
+        ldw r19, 0(r5)          # Get INTERCEPT THIS BROKE
 
         mul r20, r16, r18       # Do multiplication of X_LIST[i]*SLOPE
         add r20, r20, r19       # Do addition of r20+INTERCEPT
