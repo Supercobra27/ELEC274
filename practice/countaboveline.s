@@ -19,8 +19,8 @@ check_loop:
         ldw r16, 0(r2)          # Get X_LIST[i]
         ldw r17, 0(r3)          # Get Y_LIST[i]
 
-        ldw r18, 0(r4)          # Get SLOPE
-        ldw r19, 0(r5)          # Get INTERCEPT THIS BROKE
+        mov r18, r4          	# Get SLOPE
+        mov r19, r5          	# Get INTERCEPT
 
         mul r20, r16, r18       # Do multiplication of X_LIST[i]*SLOPE
         add r20, r20, r19       # Do addition of r20+INTERCEPT
@@ -48,7 +48,7 @@ end_if:
         ldw r19, 16(sp)         # Put stack value in register
         ldw r20, 20(sp)         # Put stack value in register
 
-        stw r6, 0(r6)           # Store in COUNT
+        stw r6, COUNT(r0)       # Store in COUNT
 
         addi sp, sp, 24         # Reallocate Stack Memory
         ret
