@@ -65,7 +65,8 @@ cloop:
     ret
 
 .org 0x1000
-Str: .word 'H','e','l','l','o','\t','W','o','r','l','d','!'
+# Str: .word 'H','e','l','l','o','\t','W','o','r','l','d','!'
+Str: .word "Hello World!"
 Size: .word 13
 
 .end
